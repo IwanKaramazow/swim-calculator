@@ -49,7 +49,9 @@ function computeSpeedTable(time400m) {
   
 }
 
-computeSpeedTable("5:00");
+if (process.argv.length >= 3) {
+  computeSpeedTable(process.argv[2]);
+}
 
 export {
   percentages ,

@@ -1,3 +1,6 @@
+@val @scope("process")
+external argv: array<string> = "argv"
+
 type paceInfo = {
   percentage: int,
   speedPer100m: float,
@@ -54,4 +57,6 @@ let computeSpeedTable = time400m => {
   }
 }
 
-computeSpeedTable("5:00")
+if argv->Belt.Array.length >= 3 {
+  computeSpeedTable(argv->Belt.Array.getUnsafe(2))
+}
